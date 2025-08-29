@@ -8,7 +8,7 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/jmoiron/sqlx"
 	"github.com/stretchr/testify/assert"
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 	userRepository "github.com/theguarantors/tiger/internal/user/repository"
 )
 

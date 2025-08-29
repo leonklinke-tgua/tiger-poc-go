@@ -3,7 +3,7 @@ package policyRepository
 import (
 	"context"
 
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 
 	"github.com/jmoiron/sqlx"
 )

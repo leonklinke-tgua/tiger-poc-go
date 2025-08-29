@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/google/uuid"
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 )
 
 //go:generate mockery --name UserRepository --with-expecter --srcpkg github.com/theguarantors/tiger/internal/user/app

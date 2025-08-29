@@ -10,7 +10,7 @@ import (
 	logger "github.com/TheGuarantors/tg-logger/pkg"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 	userService "github.com/theguarantors/tiger/internal/user/service"
 	"github.com/theguarantors/tiger/internal/user/service/mocks"
 	utils "github.com/theguarantors/tiger/utils"

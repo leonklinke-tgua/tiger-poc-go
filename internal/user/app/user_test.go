@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 	userApp "github.com/theguarantors/tiger/internal/user/app"
 	"github.com/theguarantors/tiger/internal/user/app/mocks"
 )

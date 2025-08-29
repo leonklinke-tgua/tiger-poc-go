@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	logger "github.com/TheGuarantors/tg-logger/pkg"
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 	utils "github.com/theguarantors/tiger/utils"
 )
 

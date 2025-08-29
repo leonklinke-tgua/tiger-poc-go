@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 	policyApp "github.com/theguarantors/tiger/internal/policy/app"
 	"github.com/theguarantors/tiger/internal/policy/app/mocks"
 	"github.com/theguarantors/tiger/utils"

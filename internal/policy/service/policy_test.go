@@ -12,7 +12,7 @@ import (
 	logger "github.com/TheGuarantors/tg-logger/pkg"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"github.com/theguarantors/tiger/internal/entities"
+	"github.com/theguarantors/tiger/entities"
 	policyService "github.com/theguarantors/tiger/internal/policy/service"
 	"github.com/theguarantors/tiger/internal/policy/service/mocks"
 	"github.com/theguarantors/tiger/utils"
