@@ -7,12 +7,7 @@ import (
 )
 
 func main() {
-	// config, configErr := config.LoadConfig()
-	// if configErr != nil {
-	// 	log.Fatal("cannot load config: ", configErr)
-	// }
-
-	server, err := cmd.InitializeService() // You need to import the InitializeService function from wire_gen.go
+	server, err := cmd.InitializeService()
 	if err != nil {
 		log.Fatal("cannot start server: ", err)
 		return

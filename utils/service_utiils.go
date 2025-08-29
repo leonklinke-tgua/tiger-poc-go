@@ -2,11 +2,14 @@ package utils
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"io"
 	"net/http"
 	"strings"
+
+	logger "github.com/TheGuarantors/tg-logger/pkg"
 )
 
 // UnmarshalJSON unmarshals the request body into the given interface
@@ -40,7 +43,11 @@ func MarshalJSON(v interface{}) ([]byte, error) {
 // Response creates an http.Response from the given interface and error
 // If there is an error, it returns a response with status code 500 and the error message
 // Otherwise, it returns a response with status code 200 and the marshaled interface
-func ServerResponse(v interface{}, err error) *http.Response {
+func ServerResponse(ctx context.Context, v interface{}, err error, logger *logger.Logger) *http.Response {
+	defer func() {
+		logger.With().Err(err)
+	}()
+
 	if err != nil {
 		//treat errors with specific types to return specific status codes
 		return &http.Response{

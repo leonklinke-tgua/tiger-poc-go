@@ -1,38 +1,38 @@
 package routes
 
 import (
-	"fmt"
-
 	"github.com/labstack/echo/v4"
-	policyService "github.com/theguarantors/tiger/api/policy/service"
-	userService "github.com/theguarantors/tiger/api/user/service"
+	policyService "github.com/theguarantors/tiger/internal/policy/service"
+	userService "github.com/theguarantors/tiger/internal/user/service"
+	"github.com/theguarantors/tiger/routes/handlers"
 )
 
-type ServerHTTP struct {
-	echo *echo.Echo
+type Route struct {
+	Method  string
+	Path    string
+	Handler func(c echo.Context) error
 }
 
-func SetupRoutes(
+func getRoutes(
 	userService *userService.UserService,
 	policyService *policyService.PolicyService,
-) *ServerHTTP {
-	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		resp := userService.GetUser(c.Request().Context(), c.Request())
-		defer resp.Body.Close()
-		return c.JSON(resp.StatusCode, resp.Body)
-	})
-
-	e.GET("/policies/:id", func(c echo.Context) error {
-		fmt.Println("GetPolicy")
-		resp := policyService.GetPolicy(c.Request().Context(), c.Request())
-		defer resp.Body.Close()
-		return c.JSON(resp.StatusCode, resp.Body)
-	})
-
-	return &ServerHTTP{echo: e}
-}
-
-func (s *ServerHTTP) Start() error {
-	return s.echo.Start(":8080")
+) []Route {
+	return []Route{
+		{
+			Method:  echo.GET,
+			Path:    "/",
+			Handler: func(c echo.Context) error { return c.JSON(200, "T800 - I'm alive") },
+		},
+		{
+			Method:  echo.GET,
+			Path:    "/users/:id",
+			Handler: func(c echo.Context) error { return handlers.GetUserHandler(c, userService) },
+		},
+		{
+			Method:  echo.GET,
+			Path:    "/policies/:id",
+			Handler: func(c echo.Context) error { return handlers.GetPolicyHandler(c, policyService) },
+		},
+		// Add more routes here as needed
+	}
 }
